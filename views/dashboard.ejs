@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title></title>
+  </head>
+  <body>
+  <%- include('./partials/navbar') %>
+  <br>
+  <br>
+  <div class="container">
+    <div class="row" >
+      <div class="col" style="text-align:center">
+        <h5>Welcome back <%=data.first_name%></h5>
+        <img src="/profilepic/<%=data.avatar%>" width="250" height="250"style="border-radius: 50%;" alt="">
+        <br>
+        <br>
+        <div>
+          <a style="background:#9C84EF !important"class="btn btn-primary btn-lg" href="/user/edit-profile" role="button">Edit Profile</a><br>
+          <br>
+          <a style="background:#9C84EF !important"class="btn btn-primary btn-lg" href="/user/profile/<%=data.id%>" role="button">View Profile</a><br>
+          <br>
+          <a style="background:#9C84EF !important"class="btn btn-primary btn-lg" href="/user/friendlist" role="button">Your Relation</a><br>
+          <br>
+        </div>
+      </div>
+      <div class="col-9">
+        <div class="">
+          <h3>Post your status, to get attention</h3>
+          <br>
+          <form class="" action="/user/post" method="post">
+            <div class="form-group">
+            <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Post</button>
+          </form>
+        </div>
+        <br><br>
+        <div>
+          <h3>Pending Relation Request</h3>
+          <br>
+          <%data.Source.forEach(function(request){
+            if(request.Relation.status === "Pending") {%>
+              <div style="border-style:solid">
+                <img style="float:left" src="/profilepic/<%=request.avatar%>" width="100" height="100" alt="<%=request.first_name%>">
+                <h3><%=request.first_name%> <%=request.last_name%></h3>
+                <h4><%=request.description%></h4>
+                <h4><a href="/user/accept/<%=request.id%>">Accept</a> <a href="/user/ignore/<%=request.id%>">Ignore</a></h4>
+              </div>
+            <%}
+          })%>
+        </div>
+        <br><br><br>
+        <div>
+          <h3 style="color:red">Your Date</h3>
+          <br>
+          <%dates.forEach(function(date){
+            if(date.status === "Accepted") {%>
+              <div style="border-style:solid">
+                <img style="float:left" src="/profilepic/<%=date.Pengirim.avatar%>" width="100" height="100" alt="<%=date.Pengirim.first_name%>">
+                <h3><%=date.Pengirim.first_name%> <%=date.Pengirim.last_name%></h3>
+                <h4><%=date.message%></h4>
+                <h4><a href="/user/givelovepoints/<%=date.id%>">Give Love Points</a>
+              </div>
+            <%}
+          })%>
+        </div>
+        <br><br><br>
+        <div>
+          <h3 style="color:red">Date Request</h3>
+          <br>
+          <%dates.forEach(function(date){
+            if(date.status === "Pending") {%>
+              <div style="border-style:solid">
+                <img style="float:left" src="/profilepic/<%=date.Pengirim.avatar%>" width="100" height="100" alt="<%=date.Pengirim.first_name%>">
+                <h3><%=date.Pengirim.first_name%> <%=date.Pengirim.last_name%></h3>
+                <h4><%=date.message%></h4>
+                <h4><a href="/user/acceptdate/<%=date.id%>">Accept</a> <a href="/user/ignoredate/<%=date.id%>">Ignore</a></h4>
+              </div>
+            <%}
+          })%>
+        </div>
+        <br><br><br>
+        <div>
+          <h3 style="color:red">Date History</h3>
+          <br>
+          <%reqDates.forEach(function(date){%>
+            <div style="border-style:solid">
+              <img style="float:left" src="/profilepic/<%=date.Penerima.avatar%>" width="100" height="100" alt="<%=date.Penerima.first_name%>">
+              <h3>Your date with <%=date.Penerima.first_name%> <%=date.Penerima.last_name%></h3>
+              <h4><%=date.message%></h4>
+              <h4>Status: <%=date.status%></h4>
+            </div>
+          <%})%>
+        </div>
+      </div>
+    </div>
+
+</div>
+<br><br><br>
+<%- include('./partials/footer') %>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

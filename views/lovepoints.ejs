@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title></title>
+  </head>
+  <body>
+  <%- include('./partials/navbar') %>
+  <br>
+  <br>
+  <div class="container">
+    <div class="row" >
+      <div class="col" style="text-align:center">
+        <img src="/profilepic/<%=data.Pengirim.avatar%>" width="250" height="250"style="border-radius: 50%;" alt="">
+        <br>
+        <br>
+        <h4><%=data.Pengirim.first_name%> <%=data.Pengirim.last_name%></h4>
+        <div style="border-style: solid;border-width:1px;border-radius:5%">
+          <br>
+          <p><%=data.Pengirim.description%></p>
+          <br>
+        </div>
+      </div>
+      <div class="col-9" style="text-align:left">
+        <h5>How is your date with <%=data.Pengirim.first_name%> <%=data.Pengirim.last_name%> </h5>
+        <br>
+        <h6>Give <%=data.Pengirim.first_name%> love points</h6>
+        <br><br>
+        <form class="" action="/user/givelovepoints/<%=data.id%>" method="post">
+          <label for="formGroupExampleInput2">Love points (minimum 0, maximum 100)</label>
+          <input type="number" name="point" class="form-control" id="formGroupExampleInput2">
+          <input type="hidden" name="targetId" value="<%=data.Pengirim.id%>" class="form-control" id="formGroupExampleInput2">
+          <br>
+          <button type="submit" class="btn btn-primary" onclick="return confirm('this action can't be undone, your date will be marked as Complete')">Give Love Points</button>
+        </form>
+      </div>
+    </div>
+
+</div>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
