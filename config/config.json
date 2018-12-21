@@ -1,9 +1,9 @@
 {
-  "development": {
-    "username": "postgres",
-    "password": "postgres",
-    "database": "rinder_development",
-    "host": "127.0.0.1",
+  "production": {
+    "username": "sbpfzbeyzvxczn",
+    "password": "8a4e8cca1540618c9a2ef1e4e0b0164c6e1cff253556f89a70330b5f9708c42c",
+    "database": "d5sd1r24n3h4nb",
+    "host": "ec2-54-235-247-209.compute-1.amazonaws.com",
     "dialect": "postgres"
   }
 }
