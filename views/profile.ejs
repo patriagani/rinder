@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title></title>
+  </head>
+  <body>
+  <%- include('./partials/navbar') %>
+  <br>
+  <br>
+  <div class="container">
+    <div class="row" >
+      <div class="col" style="text-align:center">
+        <img src="/profilepic/<%=data.avatar%>" width="250" height="250"style="border-radius: 50%;" alt="">
+        <br>
+        <br>
+        <h4><%=data.first_name%> <%=data.last_name%></h4>
+        <a style="background:#9C84EF !important"class="btn btn-primary btn-lg" href="/user/addrelation/<%=data.id%>" role="button">Add to Relation</a><br>
+        <br>
+        <a style="background:#9C84EF !important"class="btn btn-primary btn-lg" href="/user/askfordate/<%=data.id%>" role="button">Ask For Date</a><br>
+        <br>
+        <div style="border-style: solid;border-width:1px;border-radius:5%">
+          <br>
+          <h5>Hi, my name is <%=data.first_name%></h5><br>
+          <h5>I'm <%=data.gender%></h5><br>
+          <h5>Level: <%=data.getLevel()%></h5><br>
+          <p><%=data.description%></p>
+          <br>
+        </div>
+      </div>
+      <div class="col-9" style="text-align:left">
+        <h1>This is my post</h1>
+        <br><br>
+        <%posts.forEach(function(post){%>
+          <div style="border-style:solid">
+            <img style="float:left" src="/profilepic/<%=data.avatar%>" width="50" height="50" alt="<%=data.first_name%>">
+            <h5><a href="/user/profile/<%=data.id%>"><%=data.first_name%> <%=data.last_name%></a></h5>
+            <h6><%=post.message%></h6>
+            <p><%=post.createdAt%></p>
+          </div>
+        <%})%>
+      </div>
+    </div>
+
+</div>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

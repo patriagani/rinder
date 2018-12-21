@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title></title>
+  </head>
+  <body>
+  <%- include('./partials/navbar') %>
+  <br>
+  <center>
+    <div class="container">
+      <img src="/images/logo.png" width="50%" height="50%" alt="logo">
+      <br>
+      <h4>Create your Rinder account now</h4>
+      <br>
+    </div>
+  <div class="col-5">
+  <form action="/user/register" method="POST">
+    <div class="form-group">
+      <label for="formGroupExampleInput">First Name</label>
+      <input type="text" name="first_name" class="form-control" id="formGroupExampleInput">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Last Name</label>
+      <input type="text" name="last_name" class="form-control" id="formGroupExampleInput2">
+    </div>
+    <div class="form-group">
+    <label for="exampleFormControlTextarea1">Description</label>
+    <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+    <label for="exampleFormControlSelect1">Gender</label>
+    <select class="form-control" name="gender" id="exampleFormControlSelect1">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+    </div>
+    <div class="form-group">
+    <label for="exampleFormControlSelect1">Country</label>
+    <select class="form-control" name="country" id="exampleFormControlSelect1">
+      <option value="in">Indonesia</option>
+      <option value="en">United States</option>
+      <option value="ja">Japan</option>
+      <option value="zh-CN">China</option>
+      <option value="ar">United Emirates Arab</option>
+    </select>
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">E-mail</label>
+      <input type="text" name="email" class="form-control" id="formGroupExampleInput2">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Username</label>
+      <input type="text" name="username" class="form-control" id="formGroupExampleInput2">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Password</label>
+      <input type="password" name="password" class="form-control" id="formGroupExampleInput2">
+    </div>
+  <button type="submit" class="btn btn-primary">Register</button>
+  </form>
+  <br><br>
+</div>
+</center>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
