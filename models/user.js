@@ -12,7 +12,15 @@ module.exports = (sequelize, DataTypes) => {
     country: DataTypes.STRING,
     email: DataTypes.STRING,
     avatar: DataTypes.STRING,
-    point: DataTypes.INTEGER
+    point: DataTypes.INTEGER,
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: new Date()
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      defaultValue: new Date()
+    }
   }, {
     hooks: {
       beforeCreate: function(user) {

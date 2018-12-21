@@ -17,9 +17,9 @@ class UserController {
       description: req.body.description,
       country: req.body.country,
       avatar: null,
-      point: 0,
-      createdAt: Date.now(),
-      updatedAt: Date.now()
+      point: 0
+      // createdAt: new Date(),
+      // updatedAt: new Date()
     }
 
     console.log(obj);
